@@ -1,0 +1,128 @@
+[
+    {
+        "name": "blouse",
+        "price": "550",
+        "discount": "5",
+        "url": "300bdf12a8d25a74ce349e9911e922f6.jpg",
+        "id": "67044f915935b"
+    },
+    {
+        "name": "dress",
+        "price": "1000",
+        "discount": "10",
+        "url": "2db18123a99eff4de9484e2aa045db86.jpg",
+        "id": "670462adc0191"
+    },
+    {
+        "name": "t-shirt",
+        "price": "144",
+        "discount": "5",
+        "url": "71-dXFByQwL._AC_UF1000,1000_QL80_.jpg",
+        "id": "6705748cd5ec2"
+    },
+    {
+        "name": "blouse",
+        "price": "555",
+        "discount": "5",
+        "url": "36f17fb6cdd90c9844cc7de025f8e626.jpg",
+        "id": "670574a407e5f"
+    },
+    {
+        "name": "blouse",
+        "price": "990",
+        "discount": "10",
+        "url": "b6d7c3a51501924b38e4b3a94eea8e04.jpg",
+        "id": "670574bd1dc96"
+    },
+    {
+        "name": "skirt",
+        "price": "555",
+        "discount": "10",
+        "url": "ae721645527c3e4d9d6901282d4764bc.jpg",
+        "id": "670574e99b697"
+    },
+    {
+        "name": "blouse",
+        "price": "560",
+        "discount": "10",
+        "url": "f1a5449398abb2be1a53809fd37ac6ba.jpg",
+        "id": "670575054d2cd"
+    },
+    {
+        "name": "SQL",
+        "price": "500",
+        "discount": "10",
+        "url": "300bdf12a8d25a74ce349e9911e922f6.jpg",
+        "id": "6705790632b1b"
+    },
+    {
+        "name": "Ram",
+        "price": "97",
+        "discount": "73",
+        "url": "Stylish-Winter-Knitted-Dresses-for-Women-Warm-and-Fashionable-Ladies-Dress-Women-Knitwear-Women-Clothes-Winter-Fashion-Plain-Dress-Available-for-Custom-Clothing.webp",
+        "id": "6705791bde735"
+    },
+    {
+        "name": "Stuart Conrad",
+        "price": "927",
+        "discount": "67",
+        "url": "Stylish-Winter-Knitted-Dresses-for-Women-Warm-and-Fashionable-Ladies-Dress-Women-Knitwear-Women-Clothes-Winter-Fashion-Plain-Dress-Available-for-Custom-Clothing.webp",
+        "id": "670587fa74991"
+    },
+    {
+        "name": "Oleg Jensen",
+        "price": "255",
+        "discount": "37",
+        "url": "eaa5e8f83bda5763e52f3d0756012ed4.jpg",
+        "id": "6706c37b01b5d"
+    },
+    {
+        "name": "Lawrence Watson",
+        "price": "966",
+        "discount": "99",
+        "url": "242646247a46fc60d524da55c86e7ca7.jpg",
+        "id": "6706c3bc81467"
+    },
+    {
+        "name": "Lucius Glover",
+        "price": "88",
+        "discount": "94",
+        "url": "9e6ae44a41c9e0cb64faa8f353c93fd3.jpg",
+        "id": "6706c52c07ac3"
+    },
+    {
+        "name": "Nadine Wagner",
+        "price": "364",
+        "discount": "70",
+        "url": "36f17fb6cdd90c9844cc7de025f8e626.jpg",
+        "id": "6706c55b9410a"
+    },
+    {
+        "name": "Wang Chaney",
+        "price": "210",
+        "discount": "86",
+        "url": "300bdf12a8d25a74ce349e9911e922f6.jpg",
+        "id": "6706c65f19b67"
+    },
+    {
+        "name": "Sylvia Kidd",
+        "price": "100",
+        "discount": "12",
+        "url": "2db18123a99eff4de9484e2aa045db86.jpg",
+        "id": "6706c7309493f"
+    },
+    {
+        "name": "Grace Ferguson",
+        "price": "359",
+        "discount": "82",
+        "url": "b6d7c3a51501924b38e4b3a94eea8e04.jpg",
+        "id": "6706c78a9edb1"
+    },
+    {
+        "name": "Clinton Massey",
+        "price": "254",
+        "discount": "80",
+        "url": "300bdf12a8d25a74ce349e9911e922f6.jpg",
+        "id": "6706d2f1d57e4"
+    }
+]
