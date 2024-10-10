@@ -22,9 +22,21 @@ if (file_exists("database/cart.json")) {
 
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="alert alert-danger text-center">
+                <?php echo $_SESSION['error']; ?>
+            </div>
+        <?php unset($_SESSION['error']); endif; ?>
+
+        <?php if (isset($_SESSION['success'])): ?>
+            <div class="alert alert-success text-center">
+                <?php echo $_SESSION['success']; ?>
+            </div>
+        <?php unset($_SESSION['success']); endif; ?>
+
         <div class="row">
             <div class="col-12">
-                <table class="table table-bordered">
+                <table class="table table-bordered text-center">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -37,50 +49,46 @@ if (file_exists("database/cart.json")) {
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                    <?php if (!empty($user_data)): ?>
+                        <?php
                         $totalPrice = 0;
-                            foreach ($user_data as $key => $item) {
-                                $itemTotal = ($item['price'] * $item['discount'])/100; 
-                                $totalPrice += $itemTotal;
-                                ?>
-                                <tr>
-                                    <th scope="row"><?php echo $key + 1; ?></th>
-                                    <td><?php echo htmlspecialchars($item['name']); ?></td>
-                                    <td>$<?php echo htmlspecialchars($item['price']); ?></td>
-                                    <td><?php echo htmlspecialchars($item['discount']); ?>%</td>
-                                    <td>
-                                        <input type="number" value="1"> 
-                                    </td>
-                                    <td>$<?php echo number_format($itemTotal, 2); ?></td>
-                                    
-                                    <td>
-                                        <a href="actions/delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger">Delete</a>
-                                    </td>
-                                    
-                                </tr>
-                                <?php
-                            }
-                        ?>
+                        foreach ($user_data as $key => $item) {
+                            $itemTotal = ($item['price'] * $item['discount'])/100;
+                            $totalPrice += $itemTotal;
+                            ?>
+                            <tr>
+                                <th scope="row"><?php echo $key + 1; ?></th>
+                                <td><?php echo htmlspecialchars($item['name']); ?></td>
+                                <td>$<?php echo htmlspecialchars($item['price']); ?></td>
+                                <td><?php echo htmlspecialchars($item['discount']); ?>%</td>
+                                <td><input type="number" value="1"></td>
+                                <td>$<?php echo number_format($itemTotal, 2); ?></td>
+                                <td><a href="actions/delete.php?id=<?php echo $item['id']; ?>" class="btn btn-danger">Delete</a></td>
+                            </tr>
+                        <?php } ?>
                         <tr>
                             <td colspan="3"><strong>Total Price</strong></td>
                             <td colspan="2"><h3>$<?php echo number_format($totalPrice, 2); ?></h3></td>
-                            <td>    
+                            <td>
                                 <form action="actions/checkout.php" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
-                                <input type="hidden" name="name_product" value="<?php echo $item['name']; ?>">
-                                <input type="hidden" name="discount" value="<?php echo $item['discount']; ?>">
-                                <input type="hidden" name="price" value="<?php echo $item['price']; ?>">
-                                <input type="hidden" name="count" value="<?php echo count($user_data); ?>">
-                                <input type="hidden" name="itemTotal" value="<?php echo $itemTotal; ?>";>
-                                <input type="hidden" name="totalPrice" value="<?php echo $totalPrice; ?>">
-                                <input type="submit" value="Checkout" class="form-control btn btn-primary mt-auto">
+                                    <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                                    <input type="hidden" name="name_product" value="<?php echo $item['name']; ?>">
+                                    <input type="hidden" name="discount" value="<?php echo $item['discount']; ?>">
+                                    <input type="hidden" name="price" value="<?php echo $item['price']; ?>">
+                                    <input type="hidden" name="count" value="<?php echo count($user_data); ?>">
+                                    <input type="hidden" name="itemTotal" value="<?php echo $itemTotal; ?>";>
+                                    <input type="hidden" name="totalPrice" value="<?php echo $totalPrice; ?>">
+                                    <input type="submit" value="Checkout" class="form-control btn btn-primary mt-auto">
                                 </form>
                             </td>
-                            <td>
-                                    <a href="actions/deleteAll.php" class="btn btn-danger">delete all</a>
-                            </td>
+                            <td><a href="actions/deleteAll.php" class="btn btn-danger">Delete All</a></td>
                         </tr>
-                        
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="7" class="text-center text-danger"><strong>Your cart is empty.</strong></td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
                 </table>
             </div>
         </div>

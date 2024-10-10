@@ -1,11 +1,10 @@
-<?php 
+<?php
 
 session_start();
 
 $errors = [];
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') 
-{
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim(htmlspecialchars($_POST['name']));
     $email = trim(htmlspecialchars($_POST['email']));
     $phone = trim(htmlspecialchars($_POST['phone']));
@@ -14,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     $price = trim(htmlspecialchars($_POST['price']));
     $itemTotal = trim(htmlspecialchars($_POST['itemTotal']));
     $totalPrice = trim(htmlspecialchars($_POST['totalPrice']));
-    
+
     if (empty($name)) {
         $errors['name'] = "Name is required";
     } elseif (strlen($name) < 3) {
@@ -37,16 +36,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         $errors['phone'] = "Phone must be a maximum of 12 characters";
     }
 
-    if (empty($errors)) 
-    {
+    if (empty($errors)) {
+        if (file_exists("../database/cart.json")) {
+            $cart = file_get_contents("../database/cart.json");
+            $cart_data = json_decode($cart, true);
+
+            // If the cart is empty, set an error message and redirect back
+            if (empty($cart_data)) {
+                $_SESSION['error'] = "Your cart is empty.";
+                header("Location: ../checkout.php");
+                exit();
+            }
+        }
+        file_put_contents("../database/cart.json", json_encode([]));
+
         $_SESSION['success'] = "User Send successfully";
-        file_put_contents('database/cart.json', json_encode([]));
-
-    }
-
-
-    else
-    {
+    } else {
         $_SESSION['errors'] = $errors;
     }
 
